@@ -1,0 +1,4 @@
+[
+  { "var": "DATABASE_URL", "default": "postgres://localhost:5432/nyesingles" },
+  { "var": "PORT", "default": 5000 }
+]
