@@ -1,4 +1,6 @@
 [
   { "var": "DATABASE_URL", "default": "postgres://localhost:5432/nyesingles" },
-  { "var": "PORT", "default": 5000 }
+  { "var": "PORT", "default": 5000 },
+  { "var": "TWILIO_ACCOUNT_SID", "default": "" },
+  { "var": "TWILIO_AUTH_TOKEN", "default": "" }
 ]
