@@ -1,0 +1,30 @@
+extends ./layout.jade
+
+block content
+  h1 NYE Singles
+  if alert
+    #alert= alert
+  form(action="/singles", method="POST")
+    p
+      label(for="single-group") Group/Event/Party
+      input(type="text", placeholder="NYE Mega Awesome Time", id="single-group", name="single[group]")
+    p
+      label(for="single-name") Full name
+      input(type="text", placeholder="Jane Doe", id="single-name", name="single[name]")
+    p
+      label(for="single-phone") Mobile number
+      input(type="text", placeholder="0412345678", id="single-phone", name="single[phone]")
+    p
+      label(for="single-gender") Gender
+      select(id="single-gender", name="single[gender]")
+        each identity in identities
+          option(value=identity)= identity
+    p
+      label(for="single-preferences")
+        | Preferences
+        span  (hold down Command on Mac or Control on PC to select multiple, or to select all, select one then press Command/Control+A)
+      select(id="single-preferences", name="single[preferences]", multiple="true")
+        each identity in identities
+          option(value=identity)= identity
+    p
+      input(type="submit", value="Join the list!")

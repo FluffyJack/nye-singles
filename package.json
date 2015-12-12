@@ -9,7 +9,10 @@
   "author": "Jack Watson-Hamblin",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "gender-identities": "^1.0.0",
+    "jade": "^1.11.0",
     "lodash": "^3.10.1",
     "pg": "^4.4.3",
     "required_env": "^1.0.0",
