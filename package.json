@@ -1,0 +1,11 @@
+{
+  "name": "nye-singles",
+  "version": "1.0.0",
+  "description": "Party tool for helping decide who everyone's New Years kiss will be",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jack Watson-Hamblin",
+  "license": "MIT"
+}
