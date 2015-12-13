@@ -1,14 +1,14 @@
-var express = require('express');
 var required = require('required_env');
-var pg = require('pg');
-var bodyParser = require('body-parser');
-var setupRoutes = require('../src/routes');
-
 if (process.env.NODE_ENV === 'production') {
   required(require('../src/env'));
 } else {
   required(require('../config/env'));
 }
+
+var express = require('express');
+var pg = require('pg');
+var bodyParser = require('body-parser');
+var setupRoutes = require('../src/routes');
 
 var app = express();
 app.use(express.static(__dirname + '/../public'));
@@ -28,7 +28,11 @@ setupRoutes(app, pgClient);
 
 var all = require('../src/singles').all;
 setInterval(function() {
-  all(pgClient);
+  all(pgClient).then(function(result) {
+    console.log('Singles queried', result);
+  }, function(err) {
+    console.error('Error getting all singles', err);
+  });
 }, 10 * 1000);
 
 app.listen(process.env.PORT, function() {

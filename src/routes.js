@@ -1,4 +1,5 @@
 var identities = require('gender-identities/identities').identities;
+var sendSMS = require('./sms').send;
 
 module.exports = function setupRoutes(app, pgClient) {
   var curry = require('lodash').curry;
@@ -31,7 +32,26 @@ module.exports = function setupRoutes(app, pgClient) {
       phone: single.phone,
       gender: single.gender,
       preferences: single.preferences
-    });
+    })
+    .then(
+      function(result) {
+        console.log('Single created', single, 'Result', result);
+        return sendSMS({
+          to: single.phone,
+          body: 'Welcome to NYE Singles ' + single.name + ', please respond with YES if you meant to sign up'
+        });
+      },
+      function(err) {
+        console.error('Error creating single', err);
+      }
+    )
+    .then(
+      function(smsResponse) {
+        console.log('Verification SMS sent', smsResponse);
+      }, function(err) {
+        console.log('Verification SMS failed', err);
+      }
+    );
 
     res.redirect('/?success=true');
   });

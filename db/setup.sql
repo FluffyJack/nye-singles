@@ -6,6 +6,7 @@ CREATE TABLE singles
   phone VARCHAR(255),
   gender VARCHAR(255),
   preferences TEXT,
-  partnered BOOL DEFAULT FALSE
+  partnered BOOL DEFAULT FALSE,
+  verified BOOL DEFAULT FALSE
 );
 SELECT * FROM singles;
