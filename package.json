@@ -14,7 +14,7 @@
     "express": "^4.13.3",
     "gender-identities": "^1.0.0",
     "jade": "^1.11.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.20",
     "pg": "^4.4.3",
     "required_env": "^1.0.0",
     "twilio": "^2.7.0"
